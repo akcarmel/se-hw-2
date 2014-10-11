@@ -66,29 +66,12 @@ public void initialize(UimaContext aContext) throws ResourceInitializationExcept
         
       
         String phrase = (String) sent.getSentence().substring(start, end);
-        if (phrase.length() < 3)
-        {
-           continue;
-        }
-        else
-        {
+       
         token.setCasProcessorId(ANNOTATOR_ID);
         token.setNerstring(phrase);
         token.addToIndexes();
-        }
-        /** NEAnnotate ners = new NEAnnotate(java_cas);
-         
-        int offset_start = GetNonZeroChars((String) onesent, start);
-        int offset_end = GetNonZeroChars((String) onesent,end)-1;
-        String phrase = (String) onesent.substring(start, end);
-        ners.setBegin(offset_start);
+       
         
-        ners.setEnd(offset_end);
-        ners.setNamedEntity(phrase);
-         
-        
-        ners.addToIndexes();
-        */
         }
         
     }

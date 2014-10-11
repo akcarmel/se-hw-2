@@ -17,6 +17,7 @@ import org.apache.uima.util.Progress;
 
 public class NewCollectionReader extends CollectionReader_ImplBase {
   private Scanner Scr;
+  
   @Override
   public void getNext(CAS aCAS) throws IOException, CollectionException {
     /* @param CAS aCAS

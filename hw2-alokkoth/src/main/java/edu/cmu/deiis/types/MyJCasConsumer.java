@@ -19,7 +19,9 @@ import org.apache.uima.resource.ResourceProcessException;
 public class MyJCasConsumer extends CasConsumer_ImplBase {
   private BufferedWriter bw;
   @Override
-  
+  public void collectionProcessComplete(org.apache.uima.util.ProcessTrace arg0) throws ResourceProcessException ,IOException {
+    
+  };
   public void initialize() throws ResourceInitializationException {
     /*
      * Creates a BufferedWriter to write the output file. Reads the file name from the parameter "outputfilename".

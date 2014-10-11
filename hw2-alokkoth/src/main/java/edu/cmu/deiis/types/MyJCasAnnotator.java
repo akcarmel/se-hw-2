@@ -56,16 +56,11 @@ public void initialize(UimaContext aContext) throws ResourceInitializationExcept
         Token token = new Token(java_cas,offset_start,offset_end);
         String phrase = (String) sent.getSentence().substring(start, end);
         
-        if (phrase.length() < 3)
-        {
-           continue;
-        }
-        else
-        {
+       
         token.setCasProcessorId(ANNOTATOR_ID);
         token.setNerstring(phrase);
         token.addToIndexes();
-        }
+     
          
         
       
