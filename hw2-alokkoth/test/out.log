@@ -1,0 +1,7 @@
+Mac!!!
+Error file: /Users/alokkoth/Documents/java_workspace/hw2-alokkoth/se-hw-2/hw2-alokkoth/test/report.txt
+SCRIPT_DIR=/Users/alokkoth/Documents/java_workspace/hw2-alokkoth/se-hw-2/hw2-alokkoth/test/.
+Student: alokkoth, input file: hw2.in,  output file: hw2-alokkoth.out  CPE file: CpeDesriptor.xml
+./grader.sh: line 147: /Users/alokkoth/Documents/java_workspace/hw2-alokkoth/se-hw-2/hw2-alokkoth/test/./sort_pom_ver.py: No such file or directory
+alokkoth ERROR can't find POM
+Stopping after a failure!
