@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.cmu.lti.11791.f14.hw2</groupId>
 	<artifactId>hw2-alokkoth</artifactId>
-	<version>0.0.7</version>
+	<version>0.0.10-SNAPSHOT</version>
 	<repositories>
 		<repository>
 			<id>oaqa</id>
@@ -45,20 +45,17 @@
 						</configuration>
 					</execution>
 				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-api</artifactId>
+						<version>1.9.1</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
-	<dependency>
-<groupId>org.apache.maven.scm</groupId>
-<artifactId>maven-scm-api</artifactId>
-<version>1.9.1</version>
-</dependency>
-<dependency>
-<groupId>org.apache.maven.scm</groupId>
-<artifactId>maven-scm-provider-gitexe</artifactId>
-<version>1.9.1</version>
-</dependency>
 		<dependency>
 			<groupId>org.apache.uima</groupId>
 			<artifactId>uimaj-tools</artifactId>
@@ -90,20 +87,14 @@
 			<version>4.1.0</version>
 		</dependency>
 		<dependency>
-			<groupId>edu.stanford.nlp</groupId>
-			<artifactId>stanford-corenlp</artifactId>
-			<version>3.4.1</version>
-		</dependency>
-		<dependency>
 			<groupId>abner</groupId>
 			<artifactId>abner</artifactId>
 			<version>1.5</version>
 		</dependency>
-
 	</dependencies>
 	<scm>
 		<connection>scm:git:git@github.com:akcarmel/se-hw2-alokkoth.git</connection>
 		<developerConnection>scm:git:git@github.com:akcarmel/se-hw2-alokkoth.git</developerConnection>
-		<tag>hw2-alokkoth-0.0.7</tag>
+		<tag>hw2-nwolfe-0.0.1</tag>
 	</scm>
 </project>
