@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>edu.cmu.lti.11791.f14.hw2</groupId>
 	<artifactId>hw2-alokkoth</artifactId>
-	<version>0.0.6</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<repositories>
 		<repository>
 			<id>oaqa</id>
@@ -99,6 +99,11 @@
 			<artifactId>abner</artifactId>
 			<version>1.5</version>
 		</dependency>
+		<dependency>
+<groupId>org.apache.maven.scm</groupId>
+<artifactId>maven-scm-api</artifactId>
+<version>1.9.1</version>
+</dependency>
 	</dependencies>
 	<scm>
 		<connection>scm:git:git@github.com:akcarmel/se-hw2-alokkoth.git</connection>
