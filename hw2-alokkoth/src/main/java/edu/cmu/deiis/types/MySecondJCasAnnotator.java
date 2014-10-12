@@ -66,16 +66,16 @@ public void initialize(UimaContext aContext) throws ResourceInitializationExcept
         
       
         String phrase = (String) sent.getSentence().substring(start, end);
-       
+  
         token.setCasProcessorId(ANNOTATOR_ID);
         token.setNerstring(phrase);
         token.addToIndexes();
        
         
-        }
+        
         
     }
-
+    }
   }
   public static String MakeItRegExpable(String string)
   

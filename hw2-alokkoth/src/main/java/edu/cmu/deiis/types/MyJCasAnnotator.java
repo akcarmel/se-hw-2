@@ -19,7 +19,7 @@ import java.util.Set;
 
 public class MyJCasAnnotator extends JCasAnnotator_ImplBase {
   Chunker chunker;
-  public static String ANNOTATOR_ID = "lingpipe";
+  public static String ANNOTATOR_ID = "Lingpipe";
 @Override
 public void initialize(UimaContext aContext) throws ResourceInitializationException {
   /* @param UimaContext aContext
@@ -55,16 +55,11 @@ public void initialize(UimaContext aContext) throws ResourceInitializationExcept
         int offset_end = GetNonZeroChars((String) sent.getSentence(),end)-1;
         Token token = new Token(java_cas,offset_start,offset_end);
         String phrase = (String) sent.getSentence().substring(start, end);
-        
-       
-        token.setCasProcessorId(ANNOTATOR_ID);
-        token.setNerstring(phrase);
-        token.addToIndexes();
      
-         
-        
-      
-       
+          token.setCasProcessorId(ANNOTATOR_ID);
+          token.setNerstring(phrase);
+          token.addToIndexes();
+
       
        
     }
