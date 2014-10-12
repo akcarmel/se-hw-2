@@ -21,12 +21,12 @@ import java.util.regex.Pattern;
 
 import abner.Tagger;
 public class MySecondJCasAnnotator extends JCasAnnotator_ImplBase {
-  final public static String ANNOTATOR_ID  = "Abner";
+  final public static String ANNOTATOR_ID  = "Abner"; /** INORDER TO SET THE CAS PROCESSOR ID **/
   Tagger nlpba_model;
 @Override
 public void initialize(UimaContext aContext) throws ResourceInitializationException {
   /* @param UimaContext aContext
-   * Initializes the lingpipe NE-chunker, with the model file read from the parameter supplied: "ModelFileName".
+   * Initializes and loads the NLPBA Model for tagging.
    */
   try
   {
@@ -42,7 +42,7 @@ public void initialize(UimaContext aContext) throws ResourceInitializationExcept
   @Override
   public void process(JCas java_cas) throws AnalysisEngineProcessException {
     /* @param JCas java_cas
-     * The initialized NE-chunker annotates named entities in the text. 
+     * The initialized NER annotates named entities in the text. 
      * Then the offset begin and offset end (counting only nonzero characters), along with the named entity is added to the CAS.
      */
     FSIterator iter = java_cas.getJFSIndexRepository().getAllIndexedFS(SentenceAnnotation.type);
@@ -94,7 +94,9 @@ public void initialize(UimaContext aContext) throws ResourceInitializationExcept
     }
   }
   public static String MakeItRegExpable(String string)
-  
+  /** @param string
+   *  Inorder to make searching inside the text easy, so that regexes can be passed to matcher without worries.
+   */
   {
     string = string.replaceAll(" \\( ", "\\(");
     string = string.replaceAll(" \\) ", "\\)");

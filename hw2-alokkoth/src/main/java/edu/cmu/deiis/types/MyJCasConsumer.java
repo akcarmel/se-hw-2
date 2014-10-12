@@ -32,6 +32,11 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
   @Override
   public void collectionProcessComplete(org.apache.uima.util.ProcessTrace arg0) throws ResourceProcessException ,IOException 
   {
+    /* param arg0
+     * This function is called after the loop of calling processcas ends. In this function the output of the two annotators
+     * that is gathered at the end of processCas can be finally combined.
+     * * Writes the id,begin,end,named entity in the output file via the created Print Reader.
+     */
     
     Set<String> keySet = ling.keySet();
     Set<String> keySet2 = abz.keySet();
@@ -166,8 +171,9 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
   public void processCas(CAS CasConsumer) throws ResourceProcessException {
     
     /* @param CAS CasConsumer
-     * Loads both type systems (Sentence and Annotation) from CAS. Then corresponding to each sentence id, outputs the begin and end, and the identified named-entity.
-     * Writes the id,begin,end,named entity in the output file via the created buffered reader.
+     * Loads both type systems (Sentence and Token) from CAS. Then corresponding to each sentence id, outputs the begin and end, and the identified named-entity.
+     * The type system also has annotator ID, which tells us which annotator the token came from.
+     
      */
     JCas jcas_consumer = null;
     try {
@@ -185,7 +191,9 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
       String annotator_id = ner.getCasProcessorId();
       String with_id_string = id + "|" + ner.getBegin() + " " + ner.getEnd() + "|" + ner.getNerstring();
               
-              
+      /**
+       * Adding the tokens to appropriate hashmap/hashset depending on which tokenizer it came from.
+       */      
       
       if ( annotator_id.equals("Lingpipe"))
       {
@@ -208,6 +216,7 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
   
         
         }
+    
       if ( annotator_id.equals("Abner"))
       {
         abnered.add(with_id_string);

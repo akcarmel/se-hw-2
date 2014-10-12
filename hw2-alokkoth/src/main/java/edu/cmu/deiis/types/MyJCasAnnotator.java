@@ -19,7 +19,7 @@ import java.util.Set;
 
 public class MyJCasAnnotator extends JCasAnnotator_ImplBase {
   Chunker chunker;
-  public static String ANNOTATOR_ID = "Lingpipe";
+  public static String ANNOTATOR_ID = "Lingpipe"; /** CAS PROCESSOR ID which tells the annotator ID. **/
 @Override
 public void initialize(UimaContext aContext) throws ResourceInitializationException {
   /* @param UimaContext aContext
