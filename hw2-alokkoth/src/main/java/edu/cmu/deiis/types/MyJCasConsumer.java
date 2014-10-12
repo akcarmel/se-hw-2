@@ -28,12 +28,55 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
   public HashMap<String,ArrayList<String>> abz = new HashMap<String,ArrayList<String>>();
   
   
+  
   @Override
   public void collectionProcessComplete(org.apache.uima.util.ProcessTrace arg0) throws ResourceProcessException ,IOException 
   {
     
     Set<String> keySet = ling.keySet();
+    Set<String> keySet2 = abz.keySet();
+    HashSet<String> lines = new HashSet<String>();
+    
+    /*** ATTEMPT 5 **/
+  
+    for(String id: keySet)
+    {
+      ArrayList<String> l = ling.get(id);
+      for(String outline: l)
+      {
+      pw.write(id + "|"+ outline+'\n'); 
+      lines.add(outline);
+      }
+    }
+    for(String id: keySet2)
+    {
+      ArrayList<String> l = abz.get(id);
+      for(String outline: l)
+      {
+        if (!lines.contains(outline))
+        {
+          String o1 = outline.split("|")[1];
+          ArrayList<String> l2 = abz.get(id);
+          for (String outline2: l2)
+          {
+            String o2 = outline2.split("|")[1];
+            if (!o2.contains(o1))
+            {
+              pw.write(id + "|"+ outline+'\n'); 
+              break;
+            }
+            
+          }
+          
+     
+      }
+      }
+    }
+    pw.flush();
+    
     /***
+     * 
+     * ATTEMPT 1
      for (String str: lingpiped)
      {
        
@@ -46,7 +89,13 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
      }
 
      pw.flush();
-     **/
+   
+     ***/
+    
+    /***
+     * 
+     * ATTEMPT 2**/
+    /***
     for(String id: keySet)
     {
 
@@ -60,8 +109,10 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
       {
         for(String outline2: l2)
         {
+          String o1 = outline.split("|")[1];
+          String o2 = outline2.split("|")[1];
           
-          if ( outline.contains(outline2) || outline2.contains(outline))
+          if ( o1.contains(o2) || o2.contains(o1))
           {
             pw.write(id + "|"+ outline+'\n'); 
           }
@@ -69,7 +120,32 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
         }
       }
     }
+   
     pw.flush();
+      ***/
+    /***
+     * 
+     * ATTEMPT 3*/
+    /***
+    for(String id: keySet)
+    {
+
+      ArrayList<String> l = ling.get(id);
+      if ( abz.get(id) == null)
+      {
+        continue;
+      }
+      ArrayList<String> l2 = abz.get(id);
+      for(String outline: l)
+      {
+        
+            pw.write(id + "|"+ outline+'\n'); 
+         
+      }
+    }
+     
+    pw.flush();
+    ***/
 }
     
     
@@ -113,7 +189,7 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
       
       if ( annotator_id.equals("Lingpipe"))
       {
-        lingpiped.add(new_ner_string);
+        lingpiped.add(with_id_string);
         if ( ling.get(id) == null )
         {
           ArrayList<String> l = new ArrayList<String>();
@@ -134,7 +210,7 @@ public class MyJCasConsumer extends CasConsumer_ImplBase {
         }
       if ( annotator_id.equals("Abner"))
       {
-        abnered.add(new_ner_string);
+        abnered.add(with_id_string);
         if ( abz.get(id) == null )
         {
           ArrayList<String> l = new ArrayList<String>();

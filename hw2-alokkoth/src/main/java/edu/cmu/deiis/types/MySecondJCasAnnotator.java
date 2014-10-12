@@ -66,12 +66,28 @@ public void initialize(UimaContext aContext) throws ResourceInitializationExcept
         
       
         String phrase = (String) sent.getSentence().substring(start, end);
-  
+        
+        
+       
+        if(phrase.length() >= 8)  
+       
+        {
+        
+      
         token.setCasProcessorId(ANNOTATOR_ID);
         token.setNerstring(phrase);
         token.addToIndexes();
+        }
        
         
+        /***
+        token.setCasProcessorId(ANNOTATOR_ID);
+        token.setNerstring(phrase);
+        token.addToIndexes();
+        
+        ***/
+        
+      
         
         
     }
