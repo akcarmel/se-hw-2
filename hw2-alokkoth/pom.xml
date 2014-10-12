@@ -90,4 +90,9 @@
 			<version>1.5</version>
 		</dependency>
 	</dependencies>
+	<scm>
+		<connection>scm:git:git@github.com:akcarmel/se-hw2-alokkoth.git</connection>
+		<developerConnection>scm:git:git@github.com:akcarmel/se-hw2-alokkoth.git</developerConnection>
+		<tag>hw2-alokkoth-0.0.1</tag>
+	</scm>
 </project>
